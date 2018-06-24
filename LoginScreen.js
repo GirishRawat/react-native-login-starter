@@ -14,11 +14,11 @@ export default class LoginScreen extends React.Component {
 
         <TextField
           placeholder={'Password'}
-          type={'password'}
+          secureTextEntry={true}
         />
 
         <Buttons
-          type={'outline'}
+          type={'github'}
           shape={'round'}
           text={'Sign In'}
         />

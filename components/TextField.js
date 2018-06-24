@@ -6,7 +6,8 @@ const propTypes = {
     placeholder: PropTypes.string,
     shape: PropTypes.string,
     type: PropTypes.string,
-
+    label: PropTypes.string,
+    secureTextEntry: PropTypes.bool,
 };
 
 export default class TextField extends React.Component {
@@ -17,27 +18,22 @@ export default class TextField extends React.Component {
         this.state = { text: '' };
     }
 
-    toggleDisplay() {
-        this.setState((passwordType) => !this.state.passwordType)
-    }
-
     render() {
-        const { placeholder, shape, type } = this.props;
-        let secureEntry = false;
+        const { placeholder, shape, type, secureTextEntry } = this.props;
         let shapeStyle;
 
-        if (type === 'password') {
-            secureEntry = true;
-        }
-
         return (
-
-            <TextInput
-                style={styles.defaultTextField}
-                onChangeText={(text) => this.setState({ text })}
-                placeholder={placeholder}
-                secureTextEntry={secureEntry}
-            />
+            <View>
+                <TouchableOpacity style={styles.defaultView}>
+                    <TextInput
+                        style={styles.defaultTextField}
+                        onChangeText={(text) => this.setState({ text })}
+                        placeholder={placeholder}
+                        secureTextEntry={secureTextEntry}
+                        underlineColorAndroid='transparent'
+                    />
+                </TouchableOpacity>
+            </View>
 
         );
     }
@@ -49,6 +45,28 @@ const styles = StyleSheet.create({
         overflow: 'hidden',
         width: 320,
         height: 50,
+        marginLeft: 20
+        // marginLeft: 5,
+        // borderLeftWidth: 2,
 
     },
+    defaultView: {
+        marginTop: 10,
+        flexDirection: 'row',
+        overflow: 'hidden',
+        width: 320,
+        height: 50,
+        borderWidth: 1,
+        borderRadius: 50,
+    },
+    newView: {
+        marginTop: 10,
+        flexDirection: 'row',
+        overflow: 'hidden',
+        width: 320,
+        height: 50,
+        // borderWidth: 1,
+        borderRadius: 50,
+        backgroundColor: '#E5E5E5',
+    }
 });
