@@ -10,16 +10,18 @@ export default class LoginScreen extends React.Component {
       <View style={styles.container}>
         <TextField
           placeholder={'Email'}
+          shape={'round'}
+          type={'secondary'}
         />
 
         <TextField
           placeholder={'Password'}
-          secureTextEntry={true}
+          secureText={true}
+          shape={'circle'}
         />
 
         <Buttons
           type={'github'}
-          shape={'round'}
           text={'Sign In'}
         />
       </View>
